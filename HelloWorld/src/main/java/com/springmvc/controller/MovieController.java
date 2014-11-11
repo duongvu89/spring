@@ -1,5 +1,6 @@
-package com.programcreek.helloworld.controller;
+package com.springmvc.controller;
  
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -8,10 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.springmvc.sdo.Movie;
+import com.springmvc.service.MovieService;
  
 @Controller
-public class HelloWorldController {
+public class MovieController {
 	String message = "Welcome to Spring MVC!";
+	
+	@Autowired
+	private MovieService movieService;
  
 	@RequestMapping("/hello")
 	public ModelAndView showMessage(
@@ -27,7 +34,8 @@ public class HelloWorldController {
 	
 	@RequestMapping(value = "movies/{name}", method = RequestMethod.GET)
 	public String getMovie(@PathVariable String name, ModelMap model) {
-		model.addAttribute("movie", name);
+		Movie m = movieService.getMovie(name);
+		model.addAttribute("movie", m.toString());
 		return "list";
  
 	}
