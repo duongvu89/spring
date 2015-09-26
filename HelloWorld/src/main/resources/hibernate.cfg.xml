@@ -1,0 +1,17 @@
+<!-- The following doctype doesn't work when offline, so default to old one, which does work.
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <!--<mapping class="personal.dgvu.model.User"/>-->
+        <!--<mapping class="personal.dgvu.model.Role"/>-->
+        <!--<mapping class="personal.dgvu.model.Country"/>-->
+        <!--<mapping class="personal.dgvu.model.TaxRate"/>-->
+        <!--<mapping class="personal.dgvu.model.SalaryRecord"/>-->
+    </session-factory>
+</hibernate-configuration>
